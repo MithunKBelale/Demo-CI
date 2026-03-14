@@ -1,0 +1,20 @@
+# 1. Define the stages of your pipeline
+stages:
+  - build
+  - test
+
+# 2. Define a job for the build stage
+build_job:
+  stage: build
+  script:
+    - echo "Compiling or preparing files..."
+    - mkdir -p build/
+    - touch build/ready.txt
+
+# 3. Define a job for the test stage
+test_job:
+  stage: test
+  script:
+    - echo "Running tests..."
+    - test -f build/ready.txt
+    - echo "Test passed!"
