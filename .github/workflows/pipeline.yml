@@ -1,0 +1,17 @@
+name: GitHub Actions Demo
+on: [push] # This triggers the pipeline every time you push code
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run a one-line script
+        run: echo "Hello, the GitHub pipeline is running!"
+
+      - name: Run a multi-line script
+        run: |
+          echo "Testing your environment..."
+          python --version
